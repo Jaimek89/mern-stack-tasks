@@ -1,10 +1,9 @@
 // Our way to connect with the database
 const mongoose = require('mongoose')
 
-const URI = undefined
-//'mongodb://localhost/mern-tasks' // To upload our App, URI needs to be undefined, because URI will be get from MongoDB Atlas
+//const URI = 'mongodb://localhost/mern-tasks' // To upload our App, URI needs to be undefined, because URI will be get from MongoDB Atlas
 
-mongoose.connect(URI, {
+mongoose.connect(process.env.MONGODB_URI, {
     useNewUrlParser: true
 })
     .then(db => console.log('DB is connected'))
