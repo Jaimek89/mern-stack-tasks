@@ -27,7 +27,6 @@ class App extends Component {
             })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
                 M.toast({html: 'Task Updated'})
                 this.setState({ title: '', description: '', _id: ''})
                 this.fetchTasks()
@@ -43,7 +42,6 @@ class App extends Component {
             })
                 .then(res => res.json())
                 .then(data => { 
-                    console.log(data) 
                     M.toast({html: 'Task Saved'})
                     this.setState({ title: '', description: '' })
                     this.fetchTasks()
@@ -61,7 +59,6 @@ class App extends Component {
             .then(res => res.json())
             .then(data => {
                 this.setState({ tasks: data })
-                console.log(this.state.tasks)
             })
     }
 
@@ -76,7 +73,6 @@ class App extends Component {
             })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
                 M.toast({html: 'Task Deleted'})
                 this.fetchTasks()
             })

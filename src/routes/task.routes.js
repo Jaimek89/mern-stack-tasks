@@ -10,13 +10,13 @@ router.get('/', async (req, res) => {
     res.json(tasks)
 })
 
-// Get one method (to collect just one task through it's ID)
+// Get one method (to collect just one task through it's ID) - req.params.id requires the data from the URL
 router.get('/:id', async (req, res) => {
     const task = await Task.findById(req.params.id)
     res.json(task)
 })
 
-// Post method (To post a new task)
+// Post method (To post a new task) - req.body requires the data from the client side
 router.post('/', async (req, res) => {
     const { title, description } = req.body
     const task = new Task({ title, description })
@@ -24,7 +24,7 @@ router.post('/', async (req, res) => {
     res.json({ status: 'Task Saved' })
 })
 
-// Put method (To update a task)
+// Put method (To update a task) - req.body requires the data from the client side
 router.put('/:id', async (req, res) => {
     const { title, description } = req.body
     const newTask = { title, description }
@@ -32,7 +32,7 @@ router.put('/:id', async (req, res) => {
     res.json({ status: 'Task Updated'})
 })
 
-// Delete method (To delete a task)
+// Delete method (To delete a task) - req.params.id requires the data from the URL
 router.delete('/:id', async (req, res) => {
     await Task.findByIdAndRemove(req.params.id)
     res.json({ status: 'Task Deleted' })
