@@ -10,11 +10,9 @@ class App extends Component {
             tasks: [],
             _id: ''
         }
-        this.addTask = this.addTask.bind(this)
-        this.handlChange = this.handlChange.bind(this)
     }
 
-    addTask(e) {
+    addTask = (e) => {
         e.preventDefault()
         if (this.state._id) {
             fetch(`/api/tasks/${this.state._id}`, {
@@ -91,7 +89,7 @@ class App extends Component {
             })
     }
 
-    handlChange(e) {
+    handlChange = (e) => {
         const { name, value } = e.target
         this.setState({
             [name]: value
